@@ -1,0 +1,11 @@
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\bin\Debug\net9.0\SharedContracts.deps.json
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\bin\Debug\net9.0\SharedContracts.dll
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\bin\Debug\net9.0\SharedContracts.pdb
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\obj\Debug\net9.0\SharedContracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\obj\Debug\net9.0\SharedContracts.AssemblyInfoInputs.cache
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\obj\Debug\net9.0\SharedContracts.AssemblyInfo.cs
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\obj\Debug\net9.0\SharedContracts.csproj.CoreCompileInputs.cache
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\obj\Debug\net9.0\SharedContracts.dll
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\obj\Debug\net9.0\refint\SharedContracts.dll
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\obj\Debug\net9.0\SharedContracts.pdb
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\obj\Debug\net9.0\ref\SharedContracts.dll
