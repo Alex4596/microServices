@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\BuildingBlocks\SharedContracts\SharedContracts.csproj" />
+    <ProjectReference Include="..\InventoryService\InventoryService.csproj" />
   </ItemGroup>
 
   <ItemGroup>

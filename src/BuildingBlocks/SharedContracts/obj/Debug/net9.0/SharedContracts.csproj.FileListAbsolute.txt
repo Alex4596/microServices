@@ -9,3 +9,4 @@ C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBl
 C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\obj\Debug\net9.0\refint\SharedContracts.dll
 C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\obj\Debug\net9.0\SharedContracts.pdb
 C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\obj\Debug\net9.0\ref\SharedContracts.dll
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\BuildingBlocks\SharedContracts\obj\Debug\net9.0\SharedContracts.sourcelink.json

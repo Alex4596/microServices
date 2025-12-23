@@ -1,12 +1,11 @@
-using InventoryService.Consumers;
 using MassTransit;
+using SharedContracts;
+using InventoryService.Consumers; // Remove if consumer is in this file
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-//builder.Services.AddControllers();
+builder.Services.AddControllers();
 
-// Configure MassTransit with RabbitMQ and register the consumer
 builder.Services.AddMassTransit(x =>
 {
     x.AddConsumer<OrderCreatedConsumer>();
@@ -20,7 +19,14 @@ builder.Services.AddMassTransit(x =>
             h.Password("guest");
         });
 
-        cfg.ReceiveEndpoint("order-created-queue", e =>
+        // Same custom exchange name (must match publisher)
+        cfg.Message<OrderCreated>(m =>
+        {
+            m.SetEntityName("custom-ordercreated-fanout");
+        });
+
+        // Queue name can be anything – MassTransit will bind it to the custom fanout exchange
+        cfg.ReceiveEndpoint("inventory-fanout-queue", e =>
         {
             e.ConfigureConsumer<OrderCreatedConsumer>(context);
         });
@@ -29,9 +35,5 @@ builder.Services.AddMassTransit(x =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-//app.MapControllers();
-
+app.MapControllers();
 app.Run();
-
-

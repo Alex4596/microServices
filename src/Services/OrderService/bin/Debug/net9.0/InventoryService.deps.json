@@ -6,16 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v9.0": {
-      "OrderService/1.0.0": {
+      "InventoryService/1.0.0": {
         "dependencies": {
-          "InventoryService": "1.0.0",
           "MassTransit": "8.5.7",
           "MassTransit.RabbitMQ": "8.5.7",
           "Microsoft.AspNetCore.OpenApi": "9.0.1",
           "SharedContracts": "1.0.0"
         },
         "runtime": {
-          "OrderService.dll": {}
+          "InventoryService.dll": {}
         }
       },
       "MassTransit/8.5.7": {
@@ -134,20 +133,6 @@
       },
       "System.IO.Pipelines/8.0.0": {},
       "System.Threading.RateLimiting/8.0.0": {},
-      "InventoryService/1.0.0": {
-        "dependencies": {
-          "MassTransit": "8.5.7",
-          "MassTransit.RabbitMQ": "8.5.7",
-          "Microsoft.AspNetCore.OpenApi": "9.0.1",
-          "SharedContracts": "1.0.0"
-        },
-        "runtime": {
-          "InventoryService.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
-      },
       "SharedContracts/1.0.0": {
         "runtime": {
           "SharedContracts.dll": {
@@ -159,7 +144,7 @@
     }
   },
   "libraries": {
-    "OrderService/1.0.0": {
+    "InventoryService/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -289,11 +274,6 @@
       "sha512": "sha512-7mu9v0QDv66ar3DpGSZHg9NuNcxDaaAcnMULuZlaTpP9+hwXhrxNGsF5GmLkSHxFdb5bBc1TzeujsRgTrPWi+Q==",
       "path": "system.threading.ratelimiting/8.0.0",
       "hashPath": "system.threading.ratelimiting.8.0.0.nupkg.sha512"
-    },
-    "InventoryService/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     },
     "SharedContracts/1.0.0": {
       "type": "project",

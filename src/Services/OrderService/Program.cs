@@ -1,11 +1,11 @@
 using MassTransit;
+using SharedContracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllers();
 
-// Configure MassTransit with RabbitMQ
+// Configure MassTransit
 builder.Services.AddMassTransit(x =>
 {
     x.UsingRabbitMq((context, cfg) =>
@@ -16,12 +16,16 @@ builder.Services.AddMassTransit(x =>
             h.Username("guest");
             h.Password("guest");
         });
+
+        // Set custom exchange name for OrderCreated (fanout by default)
+        cfg.Message<OrderCreated>(m =>
+        {
+            m.SetEntityName("custom-ordercreated-fanout");
+        });
     });
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 app.MapControllers();
-
 app.Run();

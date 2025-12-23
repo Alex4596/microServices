@@ -37,3 +37,10 @@ C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\Services\O
 C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\Services\OrderService\obj\Debug\net9.0\OrderService.pdb
 C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\Services\OrderService\obj\Debug\net9.0\OrderService.genruntimeconfig.cache
 C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\Services\OrderService\obj\Debug\net9.0\ref\OrderService.dll
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\Services\OrderService\obj\Debug\net9.0\OrderService.sourcelink.json
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\Services\OrderService\bin\Debug\net9.0\InventoryService.deps.json
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\Services\OrderService\bin\Debug\net9.0\InventoryService.runtimeconfig.json
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\Services\OrderService\bin\Debug\net9.0\InventoryService.staticwebassets.endpoints.json
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\Services\OrderService\bin\Debug\net9.0\InventoryService.exe
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\Services\OrderService\bin\Debug\net9.0\InventoryService.dll
+C:\Users\Jan\Desktop\sharp_testing\we-messaging\MicroservicesDemo\src\Services\OrderService\bin\Debug\net9.0\InventoryService.pdb

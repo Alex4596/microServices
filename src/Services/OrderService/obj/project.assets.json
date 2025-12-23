@@ -318,6 +318,25 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "InventoryService/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "MassTransit": "8.5.7",
+          "MassTransit.RabbitMQ": "8.5.7",
+          "Microsoft.AspNetCore.OpenApi": "9.0.1",
+          "SharedContracts": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/InventoryService.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/InventoryService.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "SharedContracts/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
@@ -831,6 +850,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "InventoryService/1.0.0": {
+      "type": "project",
+      "path": "../InventoryService/InventoryService.csproj",
+      "msbuildProject": "../InventoryService/InventoryService.csproj"
+    },
     "SharedContracts/1.0.0": {
       "type": "project",
       "path": "../../BuildingBlocks/SharedContracts/SharedContracts.csproj",
@@ -839,6 +863,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
+      "InventoryService >= 1.0.0",
       "MassTransit >= 8.5.7",
       "MassTransit.RabbitMQ >= 8.5.7",
       "Microsoft.AspNetCore.OpenApi >= 9.0.1",
@@ -880,6 +905,9 @@
           "projectReferences": {
             "C:\\Users\\Jan\\Desktop\\sharp_testing\\we-messaging\\MicroservicesDemo\\src\\BuildingBlocks\\SharedContracts\\SharedContracts.csproj": {
               "projectPath": "C:\\Users\\Jan\\Desktop\\sharp_testing\\we-messaging\\MicroservicesDemo\\src\\BuildingBlocks\\SharedContracts\\SharedContracts.csproj"
+            },
+            "C:\\Users\\Jan\\Desktop\\sharp_testing\\we-messaging\\MicroservicesDemo\\src\\Services\\InventoryService\\InventoryService.csproj": {
+              "projectPath": "C:\\Users\\Jan\\Desktop\\sharp_testing\\we-messaging\\MicroservicesDemo\\src\\Services\\InventoryService\\InventoryService.csproj"
             }
           }
         }

@@ -18,13 +18,11 @@ public class OrdersController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateOrder([FromBody] CreateOrderDto dto)
     {
-        // Simulate creating an order ID
         var orderId = new Random().Next(1000, 9999);
 
-        // Publish the event to RabbitMQ
         await _publishEndpoint.Publish(new OrderCreated(orderId, dto.Product, dto.Quantity));
 
-        return Ok(new { Message = "Order created and event published", OrderId = orderId });
+        return Ok(new { Message = "Order created and event published to fanout exchange", OrderId = orderId });
     }
 }
 

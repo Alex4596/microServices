@@ -1,11 +1,23 @@
 {
   "Version": 1,
-  "Hash": "oCJMAzjwRF9rmtgn7EHnd2GKelrImxgFRW5WDraAsG0=",
+  "Hash": "s5TYctnbvHynMiW8ULwrpMEvgVbvGEzG5ke2DENC7CM=",
   "Source": "OrderService",
   "BasePath": "_content/OrderService",
   "Mode": "Default",
   "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Jan\\Desktop\\sharp_testing\\we-messaging\\MicroservicesDemo\\src\\Services\\InventoryService\\InventoryService.csproj",
+      "Version": 2,
+      "Source": "InventoryService",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
   "DiscoveryPatterns": [],
   "Assets": [],
   "Endpoints": []
