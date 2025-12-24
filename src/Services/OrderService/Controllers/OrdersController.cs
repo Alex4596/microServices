@@ -20,14 +20,20 @@ public class OrdersController : ControllerBase
     {
         var orderId = new Random().Next(1000, 9999);
 
-        await _publishEndpoint.Publish(new OrderCreated(orderId, dto.Product, dto.Quantity));
+        var routingKey = $"order.created.{dto.Region.ToLower()}";
 
-        return Ok(new { Message = "Order created and event published to fanout exchange", OrderId = orderId });
+        await _publishEndpoint.Publish(
+            new OrderCreated(orderId, dto.Product, dto.Quantity, dto.Region),
+            context => context.SetRoutingKey(routingKey)
+            );
+
+        return Ok(new { Message = $"Order published with routing key: {routingKey}", OrderId = orderId });
     }
 }
 
 public class CreateOrderDto
 {
-    public string Product { get; set; } = string.Empty;
+    public required string Product { get; set; } = string.Empty;
     public int Quantity { get; set; }
+    public string Region { get; set; } = "eu";
 }

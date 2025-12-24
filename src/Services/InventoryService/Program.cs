@@ -22,12 +22,25 @@ builder.Services.AddMassTransit(x =>
         // Same custom exchange name (must match publisher)
         cfg.Message<OrderCreated>(m =>
         {
-            m.SetEntityName("custom-ordercreated-fanout");
+            m.SetEntityName("order-events-topic");
+        });
+        
+        cfg.Publish<OrderCreated>(p =>
+        {
+            p.ExchangeType = "topic";
         });
 
         // Queue name can be anything – MassTransit will bind it to the custom fanout exchange
-        cfg.ReceiveEndpoint("inventory-fanout-queue", e =>
+        cfg.ReceiveEndpoint("eu-inventory-queue", e =>
         {
+            e.ConfigureConsumeTopology = false;
+            
+            e.Bind<OrderCreated>(b =>
+            {
+                b.ExchangeType = "topic";
+                b.RoutingKey = "order.created.eu";
+            });
+            
             e.ConfigureConsumer<OrderCreatedConsumer>(context);
         });
     });

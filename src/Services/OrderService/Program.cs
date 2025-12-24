@@ -20,7 +20,12 @@ builder.Services.AddMassTransit(x =>
         // Set custom exchange name for OrderCreated (fanout by default)
         cfg.Message<OrderCreated>(m =>
         {
-            m.SetEntityName("custom-ordercreated-fanout");
+            m.SetEntityName("order-events-topic");
+        });
+        
+        cfg.Publish<OrderCreated>(p =>
+        {
+            p.ExchangeType = "topic";
         });
     });
 });

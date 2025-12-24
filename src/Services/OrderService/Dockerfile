@@ -1,23 +1,30 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
-WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
-
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+﻿FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["src/Services/OrderService/OrderService.csproj", "src/Services/OrderService/"]
-COPY ["src/BuildingBlocks/SharedContracts/SharedContracts.csproj", "src/BuildingBlocks/SharedContracts/"]
+
+# Copy only required csproj files
+COPY src/Services/OrderService/OrderService.csproj src/Services/OrderService/
+COPY src/BuildingBlocks/SharedContracts/SharedContracts.csproj src/BuildingBlocks/SharedContracts/
+
 RUN dotnet restore "src/Services/OrderService/OrderService.csproj"
+
+# Copy source code
 COPY . .
-WORKDIR "/src/src/Services/OrderService"
-RUN dotnet build "./OrderService.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
+# Build
+WORKDIR /src/src/Services/OrderService
+RUN dotnet build "OrderService.csproj" -c $BUILD_CONFIGURATION -o /app/build
+
+# Publish stage - remove conflicting appsettings from the other service
 FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./OrderService.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+WORKDIR /src/src/Services/OrderService
 
-FROM base AS final
+# Delete InventoryService's appsettings to avoid NETSDK1152
+RUN find /src -name "appsettings*.json" -path "/src/src/Services/InventoryService/*" -delete || true
+
+RUN dotnet publish "OrderService.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "OrderService.dll"]

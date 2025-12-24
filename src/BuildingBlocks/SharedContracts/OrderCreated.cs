@@ -3,5 +3,6 @@
 public record OrderCreated(
     int OrderId,
     string Product, 
-    int Quantity
+    int Quantity,
+    string Region
     );
