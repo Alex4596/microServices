@@ -16,17 +16,30 @@ builder.Services.AddMassTransit(x =>
             h.Username("guest");
             h.Password("guest");
         });
-
-        // Set custom exchange name for OrderCreated (fanout by default)
-        cfg.Message<OrderCreated>(m =>
-        {
-            m.SetEntityName("order-events-topic");
-        });
         
         cfg.Publish<OrderCreated>(p =>
         {
             p.ExchangeType = "topic";
+            p.AutoDelete = false;
+            p.Durable = true;
         });
+        
+        cfg.Publish<OrderPaid>(p =>
+        {
+            p.ExchangeType = "headers";
+            p.AutoDelete = false;
+            p.Durable = true;
+        });
+
+        // Set custom exchange name for OrderCreated (fanout by default)
+        /*
+        cfg.Message<OrderCreated>(m =>
+        {
+            m.SetEntityName("order-events-topic");
+        });
+        */
+        
+        cfg.ConfigureEndpoints(context);
     });
 });
 

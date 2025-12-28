@@ -12,6 +12,20 @@ services:
       retries: 10
       start_period: 10s
 
+  orderservice:
+    build:
+      context: .
+      dockerfile: src/Services/OrderService/Dockerfile
+    image: orderservice:latest
+    ports:
+      - "8000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - RabbitMQ__Host=rabbitmq
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
   inventoryservice:
     build:
       context: .
@@ -26,13 +40,13 @@ services:
       rabbitmq:
         condition: service_healthy
 
-  orderservice:
+  paymentservice:
     build:
       context: .
-      dockerfile: src/Services/OrderService/Dockerfile
-    image: orderservice:latest
+      dockerfile: src/Services/PaymentService/Dockerfile
+    image: paymentservice:latest
     ports:
-      - "8000:8080"
+      - "8003:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - RabbitMQ__Host=rabbitmq

@@ -5,11 +5,27 @@ namespace InventoryService.Consumers;
 
 public class OrderCreatedConsumer : IConsumer<OrderCreated>
 {
+    private readonly ILogger<OrderCreatedConsumer> _logger;
+
+    public OrderCreatedConsumer(ILogger<OrderCreatedConsumer> logger)
+    {
+        _logger = logger;
+    }
+
     public Task Consume(ConsumeContext<OrderCreated> context)
     {
-        Console.WriteLine("=== [EU InventoryService] Received matching OrderCreated ===");
-        Console.WriteLine($"Region via routing key match: {context.Message.Region}");
-        Console.WriteLine($"Order ID: {context.Message.OrderId}, Product: {context.Message.Product}, Quantity: {context.Message.Quantity}");
+        var msg = context.Message;
+
+        _logger.LogInformation("Funguje! Received OrderCreated event");
+
+        if (msg.Region.Equals("EU", StringComparison.OrdinalIgnoreCase))
+        {
+            _logger.LogInformation(
+                "=== [EU InventoryService] Received matching Order ===\n" +
+                "Order ID: {OrderId}, Product: {Product}, Quantity: {Quantity}",
+                msg.OrderId, msg.Product, msg.Quantity);
+        }
+
         return Task.CompletedTask;
     }
 }

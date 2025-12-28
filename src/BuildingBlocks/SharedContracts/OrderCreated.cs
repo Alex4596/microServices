@@ -2,7 +2,7 @@
 
 public record OrderCreated(
     int OrderId,
-    string Product, 
+    string Product,
     int Quantity,
     string Region
-    );
+);
